@@ -26,7 +26,7 @@ docs = [Document(text=row.to_string()) for _, row in df.iterrows()]
 
 # Set up the OpenAI service context with higher max_tokens and slightly higher temperature
 service_context = ServiceContext.from_defaults(
-    llm=OpenAI(model="gpt-4", temperature=0.7, max_tokens=1000)
+    llm=OpenAI(model="gpt-4", temperature=0, max_tokens=1000)
 )
 
 # Create the index
