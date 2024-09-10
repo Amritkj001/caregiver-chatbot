@@ -9,18 +9,10 @@ import speech_recognition as sr  # For voice-to-text functionality
 # Load the OpenAI API key from Streamlit secrets
 openai.api_key = st.secrets["openai_key"]
 
-# GitHub raw URL for the CSV file
-csv_url = "https://raw.githubusercontent.com/your-username/your-repo/main/data/data.csv"
-
-# Load the CSV file from the GitHub URL into a pandas DataFrame
-try:
-    df = pd.read_csv(csv_url)
-    st.write("Data successfully loaded.")
-except Exception as e:
-    st.error(f"Error loading data: {e}")
-
-# Convert the pandas DataFrame into documents for the GPTVectorStoreIndex
-docs = [Document(text=row.to_string()) for _, row in df.iterrows()]
+# Load the CSV file (caching to avoid reloading)
+@st.cache_data
+def load_data():
+    return pd.read_csv('data.csv')
 
 # Set up the OpenAI service context
 service_context = ServiceContext.from_defaults(
