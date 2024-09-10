@@ -57,9 +57,6 @@ if __name__ == "__main__":
 
 # ---- Streamlit interface starts here ----
 
-# Set app layout
-st.set_page_config(page_title="Elderly Caregiver Support", layout="wide")
-
 # Sidebar with font size scale, logo, and description
 with st.sidebar:
     # Placeholder for app logo
