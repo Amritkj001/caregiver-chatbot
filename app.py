@@ -35,7 +35,7 @@ st.markdown(f"""
 """, unsafe_allow_html=True)
 
 # URL of the GIF you want to display
-#gif_url = ""
+gif_url = "https://giphy.com/gifs/GIe3jnjgHwXu4d8IGI"
 
 # Fetch the GIF from the URL
 #response = requests.get(gif_url)
