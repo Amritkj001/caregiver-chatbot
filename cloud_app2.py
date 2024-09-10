@@ -13,6 +13,7 @@ openai.api_key = st.secrets["openai_key"]
 @st.cache
 def load_data(url):
     data = pd.read_csv(url)
+return data
 
 # Load your dataset from GitHub
 DATA_URL = "https://raw.githubusercontent.com/Amritkj001/caregiver-chatbot/main/data/data.csv"  # Replace with the actual GitHub URL
