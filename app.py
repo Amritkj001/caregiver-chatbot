@@ -12,16 +12,20 @@ import speech_recognition as sr  # For voice-to-text functionality
 # Load the OpenAI API key from Streamlit secrets
 openai.api_key = st.secrets["openai_key"]
 
-# Paths
+# Get the current working directory for Streamlit
 current_dir = os.getcwd()
 
-data_dir = ""#os.path.join(current_dir, "/Users/amrit/Desktop/Caregiver Chatbot/data")
+# Define a custom directory within the current working directory for downloads
+download_dir = os.path.join(current_dir, "data", "llamahub_modules")
+os.makedirs(download_dir, exist_ok=True)  # Ensure the directory exists
 
-# Load data
-PagedCSVReader = download_loader("PagedCSVReader")
+# Load the PagedCSVReader using the custom path
+PagedCSVReader = download_loader("PagedCSVReader", custom_path=download_dir)
 loader = PagedCSVReader(encoding="utf-8")
-docs = loader.load_data(file=Path(data_dir + 'data.csv'))
-docs = loader.load_data(file="data/data.csv")
+
+# Load your data
+data_file = Path(download_dir + '/data.csv')
+docs = loader.load_data(file=data_file)
 
 # Set up the OpenAI service context
 service_context = ServiceContext.from_defaults(
