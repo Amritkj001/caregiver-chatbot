@@ -38,7 +38,7 @@ st.markdown(f"""
 #gif_url = ""
 
 # Fetch the GIF from the URL
-response = requests.get(gif_url)
+#response = requests.get(gif_url)
 
 # Convert the GIF to base64
 gif_base64 = base64.b64encode(response.content).decode('utf-8')
