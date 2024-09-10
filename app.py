@@ -17,7 +17,7 @@ openai.api_key = st.secrets.openai_key
 
 
 # URL of the image you want to display
-image_url = ""
+#image_url = ""
 
 # Display the image in Streamlit using HTML and CSS
 st.markdown(f"""
@@ -35,7 +35,7 @@ st.markdown(f"""
 """, unsafe_allow_html=True)
 
 # URL of the GIF you want to display
-gif_url = ""
+#gif_url = ""
 
 # Fetch the GIF from the URL
 response = requests.get(gif_url)
