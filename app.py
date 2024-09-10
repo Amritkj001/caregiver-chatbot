@@ -1,249 +1,124 @@
-import os
 import streamlit as st
-from pathlib import Path
-from llama_index import Document, GPTVectorStoreIndex, ServiceContext
-from llama_index.readers import SimpleDirectoryReader
+from llama_index import VectorStoreIndex, ServiceContext, Document, StorageContext, load_index_from_storage
 from llama_index.llms import OpenAI
-from llama_index import download_loader
 import openai
-import speech_recognition as sr  # For voice-to-text functionality
+from PIL import Image
+import requests
+import base64
 
-# Load the OpenAI API key from Streamlit secrets
-openai.api_key = st.secrets["openai_key"]
 
-# Get the current working directory for Streamlit
-current_dir = os.getcwd()
 
-# Define a custom directory within the current working directory for downloads
-download_dir = os.path.join(current_dir, "data", "llamahub_modules")
-os.makedirs(download_dir, exist_ok=True)  # Ensure the directory exists
+st.set_page_config(page_title="Chat with Your AI Feng Shui Master", page_icon="👩🏻‍🏫", layout="centered", initial_sidebar_state="auto", menu_items=None)
 
-# File uploader in Streamlit
-uploaded_file = st.file_uploader("Upload your data CSV", type="csv")
+#Context
 
-if uploaded_file is not None:
-    # Save the uploaded file to the 'data' directory
-    data_file_path = os.path.join(download_dir, "data.csv")
-    with open(data_file_path, "wb") as f:
-        f.write(uploaded_file.getbuffer())
-    st.success("File uploaded successfully!")
+# Set OpenAI API key
+openai.api_key = st.secrets.openai_key
 
-    # Load the PagedCSVReader using the custom directory
-    PagedCSVReader = download_loader("PagedCSVReader", custom_dir="data/llamahub_modules")
-    loader = PagedCSVReader(encoding="utf-8")
 
-    # Load data from the uploaded CSV file
-    docs = loader.load_data(file=Path(data_file_path))
+# URL of the image you want to display
+image_url = "https://github.com/yuanman88/yuanman88.github.io/blob/main/FS%20_Banner.png?raw=true"
 
-    # Set up the OpenAI service context
-    service_context = ServiceContext.from_defaults(
-        llm=OpenAI(model="gpt-4", temperature=0)
-    )
+# Display the image in Streamlit using HTML and CSS
+st.markdown(f"""
+<style>
+.shifted-image {{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 600px;
+    height: 160px; /* Adjust the height as needed */
+    margin-top: 50px; /* Adjust this value to bring the image closer to the top */
+}}
+</style>
+<img class="shifted-image" src="{image_url}" />
+""", unsafe_allow_html=True)
 
-    # Create the index from the documents
-    index = GPTVectorStoreIndex.from_documents(documents=docs, service_context=service_context)
+# URL of the GIF you want to display
+gif_url = "https://github.com/yuanman88/yuanman88.github.io/blob/main/AI_Fengshui.gif?raw=true"
 
-    # Persist the index
-    index.storage_context.persist(persist_dir="./data/index.vecstore")
+# Fetch the GIF from the URL
+response = requests.get(gif_url)
 
-    # Optional: Load the persisted index later
-    # index = GPTVectorStoreIndex.from_persisted(persist_dir="./data/index.vecstore", service_context=service_context)
+# Convert the GIF to base64
+gif_base64 = base64.b64encode(response.content).decode('utf-8')
 
-    # Set up a query engine with a context window
-    query_engine = index.as_query_engine(similarity_top_k=2)
+# Display the GIF in Streamlit using base64-encoded string, center it, and adjust its height and position
+st.markdown(f"""
+<style>
+.center {{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 600px;
+    height: 400px; /* Adjust the height as needed */
+    margin-top: 10px; /* Push the GIF down */
+}}
+.caption {{
+    text-align: center;
+    margin-top: 20px; /* Adjust the margin-top as needed */
+}}
+</style>
+<img class="center" src="data:image/gif;base64,{gif_base64}" />
+<div class="caption">How Can I Help You Today?</div>
+""", unsafe_allow_html=True)
 
-    # ---- Streamlit interface starts here ----
 
-    # Set app layout
-    st.set_page_config(page_title="Elderly Caregiver Support", layout="wide")
 
-    # Sidebar with font size scale, logo, and description
-    with st.sidebar:
-        # Placeholder for app logo
-        st.image("https://via.placeholder.com/150", caption="Care Kaki Logo", use_column_width=True)
+# Display centered text
+#st.markdown("<p style='text-align: center;'>Welcome to the AI Feng Shui Master!</p>", unsafe_allow_html=True)
 
-        # App description
-        st.write("**Care Kaki**")
-        st.write("This app is designed to help caregivers of the elderly find resources, services, and support.")
-        st.write("Use the tabs to navigate through features like the chatbot for advice, maps to locate care services, and a forum to connect with others.")
 
-        # Font size scale
-        font_size = st.slider("Adjust Font Size", min_value=12, max_value=36, value=16)
+@st.cache_resource(show_spinner=False)
+def load_data():
+    with st.spinner(text="Harmonizing energy flow... Please wait while we balance the chi! This may take 1-2 minutes."):
+        
+        # Rebuild the storage context
+        storage_context = StorageContext.from_defaults(persist_dir="./data/index.vecstore")
 
-    # Apply dynamic font size for content, but exclude the header and subheader
-    st.markdown(f"""
-        <style>
-        .dynamic-content {{
-            font-size: {font_size}px !important;
-        }}
-        .short-select-box {{
-            width: 200px !important;
-        }}
-        .microphone-icon {{
-            vertical-align: middle;
-            margin-left: 10px;
-        }}
-        </style>
-    """, unsafe_allow_html=True)
+        # Load the index
+        index = load_index_from_storage(storage_context)
 
-    # Header and Subheader with fixed font sizes
-    st.markdown("""
-        <h1 style='text-align: center; color: #4CAF50; font-size: 48px;'>Care Kaki</h1>
-        <h2 style='text-align: center; color: #6D6D6D; font-size: 24px;'>One-stop platform for support and resources for caregivers of the elderly</h2>
-    """, unsafe_allow_html=True)
+        # Load the finetuned model 
+        ft_model_name = "ft:gpt-3.5-turbo-1106:personal:fengshui:9IzbaIn8"
+        ft_context = ServiceContext.from_defaults(llm=OpenAI(model=ft_model_name, temperature=0.3), 
+        context_window=2048, 
+        
+        system_prompt="""
+       You are an AI feng shui master and you are in the process of redesigning your living space with Feng Shui principles to ensure a harmonious and balanced environment. You're particularly interested in how the placement of certain objects can influence the energy flow and enhance the luck of the owner. Specifically, you're seeking guidance on the direction in which the stove should face to promote positive energy and prosperity in your home. Additionally, you'd appreciate insights on the optimal placement of other objects, such as the aquarium and bed, to further align with Feng Shui principles. Your goal is to gather comprehensive recommendations that foster luck, prosperity, and well-being, ensuring that every aspect of your living space contributes positively to the overall Feng Shui
+       Give the correct recommendation.
+        """
+        )           
+        return index
 
-    # Horizontal Navigation Bar using buttons
-    st.markdown("""
-        <style>
-        .nav-tabs {
-            display: flex;
-            justify-content: center;
-            border-bottom: 1px solid #ddd;
-            background-color: #f8f9fa;
-            padding: 10px 0;
-        }
-        .nav-tabs button {
-            font-size: 16px;
-            padding: 10px 20px;
-            margin-right: 10px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-        .nav-tabs button:hover {
-            background-color: #45a049;
-        }
-        </style>
-    """, unsafe_allow_html=True)
+index = load_data()
+chat_engine = index.as_chat_engine(chat_mode="openai", verbose=True)
 
-    # Store the selected page in session state
-    if "page" not in st.session_state:
-        st.session_state.page = "Chatbot"  # Default page
+if "messages" not in st.session_state.keys(): # Initialize the chat messages history
+    st.session_state.messages = [
+        {"role": "assistant", "content": "Ask Me Feng Shui Questions Relating to Living Space 😊"}
+    ]
 
-    # Navigation buttons
-    col1, col2, col3, col4 = st.columns(4)
+if prompt := st.chat_input("Ask Me Feng Shui Questions Relating to Living Space"):
+    # Save the original user question to the chat history
+    st.session_state.messages.append({"role": "user", "content": prompt})
+    st.session_state.new_question = True
 
-    with col1:
-        if st.button("Chatbot"):
-            st.session_state.page = "Chatbot"
-    with col2:
-        if st.button("Maps"):
-            st.session_state.page = "Maps"
-    with col3:
-        if st.button("Forum"):
-            st.session_state.page = "Forum"
-    with col4:
-        if st.button("Useful Links"):
-            st.session_state.page = "Links"
+    # Create a detailed prompt for the chat engine
+    chat_history = ' '.join([message["content"] for message in st.session_state.messages])
+    detailed_prompt = f"{chat_history} {prompt}"
 
-    # Function to convert voice to text
-    def recognize_speech_from_microphone():
-        recognizer = sr.Recognizer()
-        microphone = sr.Microphone()
+if "new_question" in st.session_state.keys() and st.session_state.new_question:
+   for message in st.session_state.messages: # Display the prior chat messages
+       with st.chat_message(message["role"]):
+           st.write(message["content"])
+   st.session_state.new_question = False # Reset new_question to False
 
-        with microphone as source:
-            st.write("Listening...")
-            audio = recognizer.listen(source)
-
-        try:
-            response = recognizer.recognize_google(audio)
-            return response
-        except sr.RequestError:
-            return "API request error."
-        except sr.UnknownValueError:
-            return "Unable to recognize speech."
-
-    # Page content with dynamic font size
-    with st.container():
-        st.markdown(f"<div class='dynamic-content'>", unsafe_allow_html=True)
-
-        if st.session_state.page == "Chatbot":
-            st.subheader("Caregiver Chatbot")
-
-            # Shortened language selector and microphone icon beside it
-            col1, col2 = st.columns([0.7, 0.1])
-            with col1:
-                language = st.selectbox("Select your language:", ["English", "Mandarin", "Malay", "Tamil"], key="language", help="Select a language for the chatbot.")
-            with col2:
-                if st.button("🎤 Voice Input"):
-                    voice_text = recognize_speech_from_microphone()
-                    st.session_state.user_input = voice_text  # Store the voice text
-
-            # Text input for the user's question
-            user_input = st.text_input("Ask me anything (Text or Voice):", st.session_state.get("user_input", ""))
-
-            # Process the input and generate an answer
-            if st.button("Submit"):
-                if user_input:
-                    # Query the engine with the user's question
-                    response = query_engine.query(user_input)
-
-                    # Extract and display the answer
-                    answer = str(response)
-                    st.write("Answer:", answer)
-
-        elif st.session_state.page == "Maps":
-            st.subheader("Caregiver Support Services Map")
-
-            # Dropdown filter with "Nursing Home" and "Senior Day Care Centre"
-            selected_service = st.selectbox("Filter by service type:", ["Nursing Home", "Senior Day Care Centre"])
-
-            st.write(f"Showing results for: {selected_service}")
-            # Placeholder for maps integration
-            st.map()  # Replace with actual map data integration
-
-        elif st.session_state.page == "Forum":
-            st.subheader("Caregiver Forum")
-
-            # Forum categories
-            st.write("**Categories**")
-            categories = ["General Caregiving", "Elderly Health", "Mental Health Support", "Legal Issues", "Financial Assistance"]
-            selected_category = st.selectbox("Choose a category:", categories)
-
-            # User name input
-            st.write("**Your Information**")
-            user_name = st.text_input("Enter your name:")
-
-            # User post input
-            st.write("**Post Your Thoughts**")
-            user_post = st.text_area("Share your thoughts or ask a question:")
-
-            # Submit button
-            if st.button("Post"):
-                if user_name and user_post:
-                    st.success(f"Thank you {user_name}, your post has been submitted under {selected_category}.")
-                else:
-                    st.error("Please enter both your name and your thoughts before posting.")
-
-            # Display recent posts (This is a placeholder for actual post data)
-            st.write("**Recent Posts in this Category**")
-            st.write("1. User: JohnDoe - 'How can I manage stress while caregiving?'")
-            st.write("2. User: JaneSmith - 'What are some tips for maintaining elderly health?'")
-
-            # Comments section
-            st.write("**Comments on Post 1**")
-            comment_1 = st.text_input("Leave a comment on this post:")
-            if st.button("Submit Comment on Post 1"):
-                if comment_1:
-                    st.success("Your comment has been added.")
-                else:
-                    st.error("Please enter a comment before submitting.")
-
-        elif st.session_state.page == "Links":
-            st.subheader("Useful Resources for Caregivers")
-            # List of links (you can add actual URLs here)
-            st.write("- [Government Caregiver Schemes](https://example.com)")
-            st.write("- [Elderly Care Centers](https://example.com)")
-            st.write("- [Mental Health Support](https://example.com)")
-            st.write("- [Legal Help for Caregivers](https://example.com)")
-
-        st.markdown("</div>", unsafe_allow_html=True)
-
-    # Footer with feedback and help options
-    st.sidebar.write("----")
-    st.sidebar.write("Need help? [Click here](https://help.example.com)")
-    st.sidebar.write("Feedback? [Submit here](https://feedback.example.com)")
-
-else:
-    st.warning("Please upload a CSV file to proceed.")
+# If last message is not from assistant, generate a new response
+if st.session_state.messages[-1]["role"] != "assistant":
+   with st.chat_message("assistant"):
+       with st.spinner("Calculating..."):
+           response = chat_engine.chat(detailed_prompt)
+           st.write(response.response)
+           # Append the assistant's detailed response to the chat history
+           st.session_state.messages.append({"role": "assistant", "content": response.response})
