@@ -33,7 +33,7 @@ service_context = ServiceContext.from_defaults(
 index = GPTVectorStoreIndex.from_documents(documents=docs, service_context=service_context)
 
 # Increase similarity_top_k to get more documents
-query_engine = index.as_query_engine(similarity_top_k=5)
+query_engine = index.as_query_engine(similarity_top_k=2)
 
 # ---- Streamlit interface starts here ----
 
