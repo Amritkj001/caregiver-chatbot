@@ -20,7 +20,8 @@ data_dir = ""#os.path.join(current_dir, "/Users/amrit/Desktop/Caregiver Chatbot/
 # Load data
 PagedCSVReader = download_loader("PagedCSVReader")
 loader = PagedCSVReader(encoding="utf-8")
-docs = loader.load_data(file=Path(data_dir + 'data.csv'))
+#docs = loader.load_data(file=Path(data_dir + 'data.csv'))
+docs = loader.load_data(file="data/data.csv")
 
 # Set up the OpenAI service context
 service_context = ServiceContext.from_defaults(
