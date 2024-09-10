@@ -28,8 +28,8 @@ if uploaded_file is not None:
         f.write(uploaded_file.getbuffer())
     st.success("File uploaded successfully!")
 
-    # Load the PagedCSVReader using the custom path
-    PagedCSVReader = download_loader("PagedCSVReader", custom_path=download_dir)
+    # Load the PagedCSVReader using the custom directory
+    PagedCSVReader = download_loader("PagedCSVReader", custom_dir="data/llamahub_modules")
     loader = PagedCSVReader(encoding="utf-8")
 
     # Load data from the uploaded CSV file
