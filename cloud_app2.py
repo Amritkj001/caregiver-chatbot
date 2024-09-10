@@ -35,10 +35,6 @@ def generate_gpt4_response(user_input):
 def main():
     st.title("Caregiver Chatbot using GPT-4")
     st.write("This chatbot uses GPT-4 to answer your questions based on the dataset and general knowledge.")
-    
-    # Display dataset
-    st.write("Dataset Preview:")
-    st.dataframe(data.head())
 
     # User input for the chatbot
     user_input = st.text_input("Enter your question here:")
