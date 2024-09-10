@@ -18,26 +18,22 @@ csv_url = "https://raw.githubusercontent.com/Amritkj001/caregiver-chatbot/main/d
 # Load the CSV file from the GitHub URL into a pandas DataFrame
 try:
     df = pd.read_csv(csv_url)
-    st.write("Data successfully loaded.")
 except Exception as e:
     st.error(f"Error loading data: {e}")
 
 # Convert the pandas DataFrame into documents for the GPTVectorStoreIndex
 docs = [Document(text=row.to_string()) for _, row in df.iterrows()]
 
-# Set up the OpenAI service context
+# Set up the OpenAI service context with higher max_tokens and slightly higher temperature
 service_context = ServiceContext.from_defaults(
-    llm=OpenAI(model="gpt-4", temperature=0)
+    llm=OpenAI(model="gpt-4", temperature=0.7, max_tokens=500)
 )
 
 # Create the index
 index = GPTVectorStoreIndex.from_documents(documents=docs, service_context=service_context)
 
-# Persist the index
-index.storage_context.persist(persist_dir="./data/index.vecstore")
-
-# Set up a query engine with context window
-query_engine = index.as_query_engine(similarity_top_k=2)
+# Increase similarity_top_k to get more documents
+query_engine = index.as_query_engine(similarity_top_k=5)
 
 # ---- Streamlit interface starts here ----
 
