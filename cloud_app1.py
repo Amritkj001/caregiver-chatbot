@@ -10,7 +10,7 @@ import speech_recognition as sr  # For voice-to-text functionality
 openai.api_key = st.secrets["openai_key"]
 
 # GitHub raw URL for the CSV file
-csv_url = "https://raw.githubusercontent.com/your-username/your-repo/main/data/data.csv"
+csv_url = "https://raw.githubusercontent.com/Amritkj001/caregiver-chatbot/main/data/data.csv"
 
 # Load the CSV file from the GitHub URL into a pandas DataFrame
 try:
