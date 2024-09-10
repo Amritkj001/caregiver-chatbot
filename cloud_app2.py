@@ -19,17 +19,20 @@ def load_data(url):
 DATA_URL = "https://raw.githubusercontent.com/Amritkj001/caregiver-chatbot/main/data/data.csv"  # Replace with the actual GitHub URL
 data = load_data(DATA_URL)
 
-# GPT-4 chatbot function
+# GPT-4 chatbot function using the updated ChatCompletion method
 def generate_gpt4_response(user_input):
-    response = openai.Completion.create(
-        engine="gpt-4",
-        prompt=user_input,
+    response = openai.ChatCompletion.create(
+        model="gpt-4",
+        messages=[
+            {"role": "system", "content": "You are a helpful assistant for caregivers."},  # System message to set the context
+            {"role": "user", "content": user_input}  # User's question
+        ],
         max_tokens=150,
         n=1,
         stop=None,
         temperature=0  # Set temperature to 0 for deterministic responses
     )
-    return response.choices[0].text.strip()
+    return response['choices'][0]['message']['content'].strip()
 
 # Streamlit app layout
 def main():
@@ -49,5 +52,4 @@ def main():
 
 if __name__ == "__main__":
     main()
-
 
