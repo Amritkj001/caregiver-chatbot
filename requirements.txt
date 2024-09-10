@@ -2,7 +2,11 @@ pandas
 streamlit 
 llama_index==0.8.64 
 openai==1.10.0
-llama-index==0.8.64 pypdf sentence-transformers ragas openai
+llama-index==0.8.64 
+pypdf 
+sentence-transformers 
+ragas
+openai
 spacy
 ipywidgets==7.7.5  
 beautifulsoup4
