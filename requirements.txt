@@ -11,4 +11,3 @@ spacy
 ipywidgets==7.7.5  
 beautifulsoup4
 speechrecognition
-json
