@@ -13,21 +13,15 @@ import speech_recognition as sr  # For voice-to-text functionality
 openai.api_key = st.secrets["openai_key"]
 
 # Paths
-#current_dir = os.getcwd()
+current_dir = os.getcwd()
 
-#data_dir = ""#os.path.join(current_dir, "/Users/amrit/Desktop/Caregiver Chatbot/data")
+data_dir = ""#os.path.join(current_dir, "/Users/amrit/Desktop/Caregiver Chatbot/data")
 
 # Load data
-#PagedCSVReader = download_loader("PagedCSVReader")
-#loader = PagedCSVReader(encoding="utf-8")
-#docs = loader.load_data(file=Path(data_dir + 'data.csv'))
-#docs = loader.load_data(file="data/data.csv")
-
-# Load the CSV file (caching to avoid reloading)
-@st.cache_data
-def load_data():
-    return pd.read_csv('data.csv')
-df = load_data()
+PagedCSVReader = download_loader("PagedCSVReader")
+loader = PagedCSVReader(encoding="utf-8")
+docs = loader.load_data(file=Path(data_dir + 'data.csv'))
+docs = loader.load_data(file="data/data.csv")
 
 # Set up the OpenAI service context
 service_context = ServiceContext.from_defaults(
