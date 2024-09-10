@@ -6,6 +6,9 @@ from llama_index.llms import OpenAI
 import openai
 import speech_recognition as sr  # For voice-to-text functionality
 
+# Set app layout
+st.set_page_config(page_title="Elderly Caregiver Support", layout="wide")
+
 # Load the OpenAI API key from Streamlit secrets
 openai.api_key = st.secrets["openai_key"]
 
@@ -37,9 +40,6 @@ index.storage_context.persist(persist_dir="./data/index.vecstore")
 query_engine = index.as_query_engine(similarity_top_k=2)
 
 # ---- Streamlit interface starts here ----
-
-# Set app layout
-st.set_page_config(page_title="Elderly Caregiver Support", layout="wide")
 
 # Sidebar with font size scale, logo, and description
 with st.sidebar:
