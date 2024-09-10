@@ -1,31 +1,26 @@
 import os
 import streamlit as st
-from pathlib import Path
+import pandas as pd
 from llama_index import Document, GPTVectorStoreIndex, ServiceContext, VectorStoreIndex
-from llama_index.readers import BeautifulSoupWebReader, SimpleDirectoryReader
 from llama_index.llms import OpenAI
-from llama_index.evaluation import DatasetGenerator
-from llama_index import download_loader, set_download_path
 import openai
 import speech_recognition as sr  # For voice-to-text functionality
 
 # Load the OpenAI API key from Streamlit secrets
 openai.api_key = st.secrets["openai_key"]
 
-# Paths
-current_dir = os.getcwd()
+# GitHub raw URL for the CSV file
+csv_url = "https://raw.githubusercontent.com/your-username/your-repo/main/data/data.csv"
 
-# Set a custom download path to avoid permission issues
-custom_download_dir = os.path.join(current_dir, "custom_llama_downloads")
-os.makedirs(custom_download_dir, exist_ok=True)  # Create the directory if it doesn't exist
-set_download_path(custom_download_dir)  # Set the custom path for downloads
+# Load the CSV file from the GitHub URL into a pandas DataFrame
+try:
+    df = pd.read_csv(csv_url)
+    st.write("Data successfully loaded.")
+except Exception as e:
+    st.error(f"Error loading data: {e}")
 
-data_dir = ""  # Replace with actual data directory if needed
-
-# Load data
-PagedCSVReader = download_loader("PagedCSVReader")
-loader = PagedCSVReader(encoding="utf-8")
-docs = loader.load_data(file=Path(data_dir + 'data.csv'))
+# Convert the pandas DataFrame into documents for the GPTVectorStoreIndex
+docs = [Document(text=row.to_string()) for _, row in df.iterrows()]
 
 # Set up the OpenAI service context
 service_context = ServiceContext.from_defaults(
@@ -37,9 +32,6 @@ index = GPTVectorStoreIndex.from_documents(documents=docs, service_context=servi
 
 # Persist the index
 index.storage_context.persist(persist_dir="./data/index.vecstore")
-
-# # Load the persisted index (optional step if you're loading it later)
-# index = VectorStoreIndex.from_persisted(persist_dir="./data/index.vecstore", service_context=service_context)
 
 # Set up a query engine with context window
 query_engine = index.as_query_engine(similarity_top_k=2)
@@ -228,12 +220,5 @@ with st.container():
         # List of links (you can add actual URLs here)
         st.write("- [Government Caregiver Schemes](https://example.com)")
         st.write("- [Elderly Care Centers](https://example.com)")
-        st.write("- [Mental Health Support](https://example.com)")
-        st.write("- [Legal Help for Caregivers](https://example.com)")
+        st.write("- [Mental Health Support](https://example.com
 
-    st.markdown("</div>", unsafe_allow_html=True)
-
-# Footer with feedback and help options
-st.sidebar.write("----")
-st.sidebar.write("Need help? [Click here](https://help.example.com)")
-st.sidebar.write("Feedback? [Submit here](https://feedback.example.com)")
