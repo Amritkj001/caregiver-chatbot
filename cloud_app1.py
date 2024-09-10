@@ -220,5 +220,5 @@ with st.container():
         # List of links (you can add actual URLs here)
         st.write("- [Government Caregiver Schemes](https://example.com)")
         st.write("- [Elderly Care Centers](https://example.com)")
-        st.write("- [Mental Health Support](https://example.com
+        st.write("- [Mental Health Support](https://example.com")
 
