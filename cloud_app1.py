@@ -14,6 +14,17 @@ openai.api_key = st.secrets["openai_key"]
 def load_data():
     return pd.read_csv('data.csv')
 
+# Load your data (assuming 'data.csv' contains the documents)
+df = load_data()
+
+# Create a list of Document objects from your DataFrame
+# Assuming there's a column 'text' in the DataFrame that holds the document text
+docs = [Document(text=row['text']) for index, row in df.iterrows()]
+
+# Create the index
+index = GPTVectorStoreIndex.from_documents(documents=docs, service_context=service_context)
+
+
 # Set up the OpenAI service context
 service_context = ServiceContext.from_defaults(
     llm=OpenAI(model="gpt-4", temperature=0)
