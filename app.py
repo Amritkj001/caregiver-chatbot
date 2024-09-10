@@ -17,7 +17,7 @@ openai.api_key = st.secrets.openai_key
 
 
 # URL of the image you want to display
-#image_url = ""
+image_url = "https://imageio.forbes.com/specials-images/imageserve/6117af8b679cc9098dd4eb2e/Adult-hands-holding-older-hands-showing-the-importance-of-caregiving-/960x0.jpg"
 
 # Display the image in Streamlit using HTML and CSS
 st.markdown(f"""
