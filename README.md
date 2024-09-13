@@ -4,6 +4,7 @@
  - [Approach](#Approach)
  - [Evaluation Criteria](#Evaluatoin-Criteria)
  - [Technical & Task Based Evaluation](#Technical-&-Task-Based-Evaluation)
+ - [Future Improvements](#Future-Improvements)
  - [Conclusion](#Conclusion)
  
 ## Background
@@ -86,29 +87,7 @@ This approach allows the chatbot to fulfil its role effectively as a resource fo
 
 OpenAI's GPT-3.5 Turbo, GPT-4 and GPT4-1106 will use used for the model evaluation.
 
-The following criteria are used to evaluate both the technical and non-technical aspects of the models' performance to ensure a well-rounded assessment.
-
-**Relevancy:** The degree to which the generated responses correctly answer or address the user’s query.
-
-**Faithfulness:** How well the responses are aligned with the user's input, providing appropriate and useful information.
-
-**Coherence:** The logical flow and structure of the responses, ensuring that the information is consistent and easy to follow.
-
-**Fluency:** The linguistic quality of the responses, including grammar, spelling, and sentence construction.
-
-**Response Completeness:** Whether the model provides a comprehensive answer, covering all aspects of the question asked by the user.
-
-**Conciseness:** The model’s ability to provide complete and relevant information without being overly verbose.
-
-**Empathy/Tone:** How well the model adjusts its tone to be supportive and empathetic, especially in sensitive contexts such as caregiving.
-
-**Latency:** The speed of response, which is important for ensuring smooth user interaction, especially in real-time applications.
-
-**Cost Efficiency:** The model's computational and financial costs, especially when handling a large number of queries or tokens, balancing quality and affordability.
-
-**Token Usage:** How efficiently the model uses tokens, especially in responses, considering the token limits and cost implications.
-
-**Factual Consistency:** Whether the model provides accurate, fact-based answers that do not contradict known information.
+![Evaluation Criteria](images/model-evaluation.png)
 
 ## Technical & Task Based Evaluation
 
@@ -122,9 +101,40 @@ Based on the screenshots below, while all models provided the grant criteria, GP
 ![GPT-4 Response](images/gpt-4-info-response.png)
 ![GPT-4 1006 Response](images/gpt-41106-info-response.png)
 
-Compared to the other models, GPT-4's response provided actionable steps, along with a website link and hotline number. 
+GPT-4 1106 response carried an supportive and empathetic tone. However, GPT-4's response provided actionable steps, along with a website link and hotline number. 
 
 ![Models Response](images/gpts-mental-health-response.png)
+
+## Recommendation
+
+**Higher Accuracy:** GPT-4 has been trained on a more extensive and diverse dataset compared to GPT-3.5, allowing it to generate more accurate and well-informed responses. GPT-4 1106 is optimised for speed and cost efficiency, which might lead to minor trade-offs in depth or reasoning compared to GPT-4.
+
+**Improved Relevance:** GPT-4’s larger model size and advanced architecture allow it to better understand the nuances of user queries and generate highly relevant responses. While GPT-4 1106 is also strong in relevance, GPT-4’s deeper context understanding generally leads to more accurate and topic-aligned answers.
+
+**Fluency and Grammar:** GPT-4 and GPT-4 1106 typically provides more polished and grammatically correct responses, especially in situations where subtle language distinctions are important. GPT-3.5 may generate grammatically correct outputs, but GPT-4’s linguistic fluency is more refined.
+
+**Greater Coherence:** GPT-4 excels in maintaining conversation coherence across longer dialogues, making it especially suited for use cases involving extended interaction. GPT-3.5 and GPT-4 1106, while competent, might lose track of the conversation more often.
+
+**Higher Completeness:** GPT-4 tends to provide more comprehensive answers, often including additional details that ensure the response is more complete and informative. GPT-3.5 and GPT-4 1106 may give shorter, less detailed responses to prioritise speed over depth of information.
+
+**Balanced Response Time:** While GPT-4 is slower than GPT-4 1106 and GPT-3.5, it often strikes a better balance between response quality and speed. GPT-4 1106 may provide faster responses but might sacrifice some depth of reasoning or accuracy, while GPT-3.5 is faster but generally less accurate.
+
+**Empathy and Tone:** While GPT-4 focuses on depth and accuracy, GPT-4 1106 might strike a unique balance between empathy and speed. GPT-3.5 may sometimes produce more neutral or mechanical responses.
+
+**Cost vs. Quality Trade-Off:** While GPT-4 1106 and GPT-3.5 offer more cost-efficient solutions. GPT-4's performance on accuracy, relevance, coherence, and empathy often justifies the additional cost in applications where high-quality responses are critical, such as caregiving chatbots.
+
+<span style="color: blue">For a chatbot that aims to provide valuable information to caregivers for the elderly as much as possible, **GPT-4** would be selected for its balance of high accuracy and the ability to handle complex interactions effectively.</span>
+
+## Future Improvements 
+To enhance the model's effectiveness and usefulness, the following steps can be taken:
+
+- **Focus-group** with real users would be beneficial to evaluate the satisfaction levels with the interaction quality and the responses provided by the current chatbot. By observing the language used, the dataset can be further improved to incorporate langauge patterns such as Singlish or gramatically incorrect English so that the model is able to respond effectively if such input is given.
+  
+- **Integrate Memory Component** in Chain of Thought (CoT) so it can track the user’s inputs over the course of the conversation. This will allow the chatbot to follow a coherent chain of thought across multiple turns, referencing prior steps and context.
+
+- **Implement Intermediate Reasoning Steps** to train the chatbot to reason through multi-step problems using CoT. This can be achieved through prompt engineering, such as explicitly asking the model to reason before answering.
+
+Through the use of Focus Groups and Chain of Thought (CoT) reasoning, the current chatbot has the potential to deliver more structured, logical, and helpful responses, enhancing both clarity and overall effectiveness for handling complex reasoning.
 
 ## Conclusion
 
