@@ -2,6 +2,7 @@
  - [Background](#Background)
  - [Problem Statement](#Problem-Statement)
  - [Approach](#Approach)
+ - [Evaluation Criteria](#Evaluatoin-Criteria)
  - [Technical & Task Based Evaluation](#Technical-&-Task-Based-Evaluation)
  - [Conclusion](#Conclusion)
  
@@ -80,6 +81,34 @@ By integrating LLMs, RAG, and OpenAI models, the chatbot:
 - Is scalable and efficient, ensuring a seamless user experience even during long, detailed interactions.
 
 This approach allows the chatbot to fulfil its role effectively as a resource for caregivers, offering both information and emotional support tailored to individual needs.
+
+## Evaluation Criteria 
+
+OpenAI's GPT-3.5 Turbo, GPT-4 and GPT4-1106 will use used for the model evaluation.
+
+The following criteria are used to evaluate both the technical and non-technical aspects of the models' performance to ensure a well-rounded assessment.
+
+**Relevancy:** The degree to which the generated responses correctly answer or address the user’s query.
+
+**Faithfulness:** How well the responses are aligned with the user's input, providing appropriate and useful information.
+
+**Coherence:** The logical flow and structure of the responses, ensuring that the information is consistent and easy to follow.
+
+**Fluency:** The linguistic quality of the responses, including grammar, spelling, and sentence construction.
+
+**Response Completeness:** Whether the model provides a comprehensive answer, covering all aspects of the question asked by the user.
+
+**Conciseness:** The model’s ability to provide complete and relevant information without being overly verbose.
+
+**Empathy/Tone:** How well the model adjusts its tone to be supportive and empathetic, especially in sensitive contexts such as caregiving.
+
+**Latency:** The speed of response, which is important for ensuring smooth user interaction, especially in real-time applications.
+
+**Cost Efficiency:** The model's computational and financial costs, especially when handling a large number of queries or tokens, balancing quality and affordability.
+
+**Token Usage:** How efficiently the model uses tokens, especially in responses, considering the token limits and cost implications.
+
+**Factual Consistency:** Whether the model provides accurate, fact-based answers that do not contradict known information.
 
 ## Conclusion
 
