@@ -2,7 +2,7 @@
  - [Background](#Background)
  - [Problem Statement](#Problem-Statement)
  - [Approach](#Approach)
- - [Evaluation Criteria](#Evaluatoin-Criteria)
+ - [Evaluation Criteria](#Evaluation-Criteria)
  - [Technical & Task Based Evaluation](#Technical-&-Task-Based-Evaluation)
  - [Future Improvements](#Future-Improvements)
  - [Conclusion](#Conclusion)
