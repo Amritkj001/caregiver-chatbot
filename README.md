@@ -87,7 +87,7 @@ This approach allows the chatbot to fulfil its role effectively as a resource fo
 
 OpenAI's GPT-3.5 Turbo, GPT-4 and GPT4-1106 will use used for the model evaluation.
 
-![Evaluation Criteria](images/model-evaluation.png)
+![Evaluation Criteria](images/evaluation-criteria.png)
 
 ## Technical & Task Based Evaluation
 
