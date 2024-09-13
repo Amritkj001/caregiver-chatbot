@@ -8,7 +8,7 @@
  
 
 ## Background
-![Caring Hands]([images/caring-hands-and-logo.jpg)
+![Caring Hands]([images/caring-hands-and-logo.jpg])
 
 From 2012 to 2021, Housing and Development Board (HDB) resale prices in Singapore experienced significant fluctuations due to various policy changes, market demand, and economic factors. In 2013, the Singapore government implemented several cooling measures, including the Total Debt Servicing Ratio (TDSR) framework and a reduction in the Mortgage Servicing Ratio (MSR) for HDB loans, which led to a decline in resale prices from 2014 to 2017. However, from 2018 onwards, the HDB resale market began to recover, driven by factors such as a stable economy and increased demand for public housing.
 
