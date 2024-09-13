@@ -3,7 +3,7 @@
  - [Problem Statement](#Problem-Statement)
  - [Approach](#Approach)
  - [Evaluation Criteria](#Evaluation-Criteria)
- - [Technical & Task Based Evaluation](#Technical-&-Task-Based-Evaluation)
+ - [Technical and Task Based Evaluation](#Technical-and-Task-Based-Evaluation)
  - [Future Improvements](#Future-Improvements)
  - [Conclusion](#Conclusion)
  
@@ -87,7 +87,7 @@ OpenAI's GPT-3.5 Turbo, GPT-4 and GPT4-1106 will use used for the model evaluati
 
 ![Evaluation Criteria](images/evaluation-criteria.png)
 
-## Technical & Task Based Evaluation
+## Technical and Task Based Evaluation
 
 GPT-4 performed the best out of the three models in the technical evaluation.
 
