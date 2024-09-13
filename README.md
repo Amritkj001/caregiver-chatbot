@@ -105,7 +105,7 @@ Based on the screenshots below, while all models provide the grant criteria, GPT
 
 GPT-4 1106's response carries a supportive and empathetic tone. However, GPT-4's response provides actionable steps, along with a website link and hotline number which would be more beneficial to caregivers. 
 
-![Models Response](images/gpts-mental-health-response.png)
+![Models Response](images/gpts-mental-health-responses.png)
 
 ## Recommendation
 
