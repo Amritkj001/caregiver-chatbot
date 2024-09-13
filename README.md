@@ -83,7 +83,7 @@ This approach allows the chatbot to fulfil its role effectively as a resource fo
 
 ## Evaluation Criteria 
 
-OpenAI's GPT-3.5 Turbo, GPT-4 and GPT4-1106 will use used for the model evaluation.
+OpenAI's GPT-3.5 Turbo, GPT-4 and GPT4-1106 are used for the model evaluation.
 
 ![Evaluation Criteria](images/evaluation-criteria.png)
 
@@ -91,19 +91,19 @@ OpenAI's GPT-3.5 Turbo, GPT-4 and GPT4-1106 will use used for the model evaluati
 
 **Technical Evaluation**
 
-GPT-4 performed the best out of the three models in the technical evaluation.
+GPT-4 performs the best out of the three models in the technical evaluation.
 
 ![GPT Model Evaluation](images/model-evaluation.png)
 
 **Task Based Evaluation**
 
-Based on the screenshots below, while all models provided the grant criteria, GPT-4's response stands out by including the grant amount of $200, offering additional valuable information for caregivers. Such detail in the response is desired. 
+Based on the screenshots below, while all models provide the grant criteria, GPT-4's response stands out by including the grant amount of $200, offering additional valuable information for caregivers. Such detail in the response is desired. 
 
 ![GPT-3.5 Turbo Response](images/gpt-3.5-turbo-info-response.png)
 ![GPT-4 Response](images/gpt-4-info-response.png)
 ![GPT-4 1006 Response](images/gpt-41106-info-response.png)
 
-GPT-4 1106 response carried an supportive and empathetic tone. However, GPT-4's response provided actionable steps, along with a website link and hotline number. 
+GPT-4 1106's response carries a supportive and empathetic tone. However, GPT-4's response provides actionable steps, along with a website link and hotline number which would be more beneficial to caregivers. 
 
 ![Models Response](images/gpts-mental-health-response.png)
 
