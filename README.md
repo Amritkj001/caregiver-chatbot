@@ -89,9 +89,13 @@ OpenAI's GPT-3.5 Turbo, GPT-4 and GPT4-1106 will use used for the model evaluati
 
 ## Technical and Task Based Evaluation
 
+**Technical Evaluation**
+
 GPT-4 performed the best out of the three models in the technical evaluation.
 
 ![GPT Model Evaluation](images/model-evaluation.png)
+
+**Task Based Evaluation**
 
 Based on the screenshots below, while all models provided the grant criteria, GPT-4's response stands out by including the grant amount of $200, offering additional valuable information for caregivers. Such detail in the response is desired. 
 
