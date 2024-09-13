@@ -1,4 +1,4 @@
-# Care Kaki - support for caegivers of the elderly
+# Care Kaki - support for caregivers of the elderly
  - [Background](#Background)
  - [Problem Statement](#Problem-Statement)
  - [Approach](#Approach)
