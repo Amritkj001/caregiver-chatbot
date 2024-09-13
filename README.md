@@ -33,9 +33,9 @@ Despite government initiatives, **lack of awareness of exisiting resources** is 
 We will follow the data science process to create a solution.
 1. Define the problem
 2. Gather & clean the data
-3. Explore the data
-4. Model the data
-5. Evaluate the model
+3. Employ LLM machine learning
+4. Refine system prompt to technical and non-technical scores for the models
+5. Evaluate the final model on the criterias set out
 6. Answer the problem
 
 ### Dataset
