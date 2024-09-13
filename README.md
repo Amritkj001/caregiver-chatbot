@@ -49,7 +49,7 @@ The information in the dataset is accurate as of 11/11/2024.
 
 In building the chatbot, Large Language Models (LLMs), Retrieval-Augmented Generation (RAG), and OpenAI models are used to provide accurate and contextually relevant responses to users, especially caregivers seeking support. 
 
-**Large Language Models (LLMs)** such as OpenAI's GPT-4, are powerful tools capable of understanding and generating human-like text. The key advantage of LLMs is their ability to:
+**Large Language Models (LLMs)** such as OpenAI, are powerful tools capable of understanding and generating human-like text. The key advantage of LLMs is their ability to:
 
 - Understand complex queries and respond with natural language output.
 - Process vast amounts of pre-existing knowledge, which is crucial for generating insightful and relevant responses in various caregiving scenarios.
@@ -64,10 +64,10 @@ By using LLMs, the chatbot can engage with users meaningfully, addressing both t
 
 This is particularly useful for the chatbot, as caregivers often require precise information about resources, government schemes, and support services. RAG ensures that the chatbot can access and provide up-to-date information, which may not be part of the LLM's internal knowledge.
 
-**OpenAI Models** such as GPT-4 and GPT-4 Turbo models were used due to their robust conversational abilities, high-quality outputs, and cost-efficiency. OpenAI models provide:
+**OpenAI Models** have robust conversational abilities, high-quality outputs, and cost-efficiency models. OpenAI models provide:
 
 - Scalable, powerful performance in generating natural, contextually rich conversations.
-- Flexibility to handle real-world deployment scenarios, with GPT-4 Turbo offering faster and more cost-efficient interactions.
+- Flexibility to handle real-world deployment scenarios.
 
 OpenAI models help achieve the goal of making the chatbot both intelligent and responsive, ensuring that it can answer user queries with depth and accuracy.
 
