@@ -110,6 +110,22 @@ The following criteria are used to evaluate both the technical and non-technical
 
 **Factual Consistency:** Whether the model provides accurate, fact-based answers that do not contradict known information.
 
+## Technical & Task Based Evaluation
+
+GPT-4 performed the best out of the three models in the technical evaluation.
+
+![GPT Model Evaluation](images/model-evaluation.png)
+
+Based on the screenshots below, while all models provided the grant criteria, GPT-4's response stands out by including the grant amount of $200, offering additional valuable information for caregivers. Such detail in the response is desired. 
+
+![GPT-3.5 Turbo Response](images/gpt-3.5-turbo-info-response.png)
+![GPT-4 Response](images/gpt-4-info-response.png)
+![GPT-4 1006 Response](images/gpt-41106-info-response.png)
+
+Compared to the other models, GPT-4's response provided actionable steps, along with a website link and hotline number. 
+
+![Models Response](images/gpts-mental-health-response.png)
+
 ## Conclusion
 
 XXX
