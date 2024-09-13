@@ -123,7 +123,7 @@ GPT-4 1106 response carried an supportive and empathetic tone. However, GPT-4's 
 
 **Cost vs. Quality Trade-Off:** While GPT-4 1106 and GPT-3.5 offer more cost-efficient solutions. GPT-4's performance on accuracy, relevance, coherence, and empathy often justifies the additional cost in applications where high-quality responses are critical, such as caregiving chatbots.
 
-<span style="color: blue">For a chatbot that aims to provide valuable information to caregivers for the elderly as much as possible, **GPT-4** would be selected for its balance of high accuracy and the ability to handle complex interactions effectively.</span>
+**Overall, for a chatbot that aims to provide valuable information to caregivers for the elderly as much as possible, GPT-4 would be selected for its balance of high accuracy and the ability to handle complex interactions effectively**
 
 ## Future Improvements 
 To enhance the model's effectiveness and usefulness, the following steps can be taken:
