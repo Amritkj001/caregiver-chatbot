@@ -10,7 +10,7 @@
 ## Background
 ![Caring Hands](images/caring-hands-and-logo.jpg)
 
-![Care Kaki Demo](demo/care-kaki-demo.mov)
+[Care Kaki Demo](demo/care-kaki-demo.mp4)
 
 ### Caregiving for the Elderly in Singapore
 
