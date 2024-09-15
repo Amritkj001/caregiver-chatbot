@@ -20,7 +20,7 @@ Over recent decades, caregiving in Singapore has gained increasing importance du
 
 One of the foremost challenges caregivers encounter is the **emotional and physical toll** caregiving takes. Many caregivers report feelings of isolation, exhaustion, and anxiety, particularly when caring for elderly individuals with dementia or other complex health issues. This strain can lead to a decline in the caregiver's own health and well-being over time.
 
-Caregiving also brings **financial stress**, as the cost of medical care, professional services, and home adaptations can be significant. Many caregivers are forced to cut back on work or dip into personal savings to cover expenses, adding to the already substantial financial burden.
+Caregiving also brings financial stress, as the cost of medical care, professional services, and home adaptations can be significant. Many caregivers are forced to cut back on work or dip into personal savings to cover expenses, adding to the already substantial financial burden.
 
 ## Problem Statement
 
@@ -28,7 +28,7 @@ Despite government initiatives, **lack of awareness of exisiting resources** is 
 
 ## Approach
 
-**How might we use machine learning to address this awareness gap?**
+**How might we use machine learning to address this gap in awareness of existing grants and schemes?**
 
 We will follow the data science process to create a solution.
 1. Define the problem
