@@ -34,8 +34,8 @@ We will follow the data science process to create a solution.
 1. Define the problem
 2. Gather & clean the data
 3. Employ LLM machine learning
-4. Refine system prompt to technical and non-technical scores for the models
-5. Evaluate the final model on the criterias set out
+4. Refine system prompt to improve technical and non-technical scores for the models
+5. Evaluate the final model on the criteria set out
 6. Answer the problem
 
 ### Dataset
