@@ -1,4 +1,5 @@
 # Care Kaki - support for caregivers of the elderly
+ - [Introducing, Care Kaki](#Introducing-Care-Kaki)
  - [Background](#Background)
  - [Problem Statement](#Problem-Statement)
  - [Approach](#Approach)
@@ -6,11 +7,16 @@
  - [Technical and Task Based Evaluation](#Technical-and-Task-Based-Evaluation)
  - [Future Improvements](#Future-Improvements)
  - [Conclusion](#Conclusion)
+
+## Introducing, Care Kaki
+[![Watch the Demo](https://img.youtube.com/vi/v62lh1YGkwA/0.jpg)](https://youtu.be/AEHw6bHblt4)
+
+Care Kaki offers a simple, all-in-one solution to bridge the awareness gap of resources and support that are crucial for caregivers of the elderly in Singapore.
+
+At the heart of Care Kaki is a dedicated chatbot that connects caregivers with essential information on financial aid, caregiving resources, and mental health support.
  
 ## Background
 ![Caring Hands](images/caring-hands-and-logo.jpg)
-
-[![Watch the Demo](https://img.youtube.com/vi/v62lh1YGkwA/0.jpg)](https://youtu.be/AEHw6bHblt4)
 
 ### Caregiving for the Elderly in Singapore
 
@@ -146,4 +152,4 @@ As Singapore’s population continues to age, caregiving will remain a critical 
 
 To bridge this gap, Care Kaki can play a pivotal role. By offering easily accessible information, Care Kaki understands the caregiver needs and matches them with relevant government schemes, support groups, and services. This allows caregivers to navigate available resources more effectively. It also includes features like voice-to-text functionalities, ensuring accessibility for all caregivers, including those less comfortable with technology.
 
-Whils this is just the first step, the hope is that this solution will contribute to creating a sustainable caregiving framework in Singapore, ensuring caregivers have the support they need to care for their elderly family members and themselves. 
+While this is just the first step, the hope is that this solution will contribute to creating a sustainable caregiving framework in Singapore, ensuring caregivers have the support they need to care for their elderly family members and themselves. 
