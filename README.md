@@ -9,11 +9,13 @@
  - [Conclusion](#Conclusion)
 
 ## Introducing, Care Kaki
-[![Watch the Demo](https://img.youtube.com/vi/v62lh1YGkwA/0.jpg)](https://youtu.be/AEHw6bHblt4)
+
 
 Care Kaki offers a simple, all-in-one solution to bridge the awareness gap of resources and support that are crucial for caregivers of the elderly in Singapore.
 
 At the heart of Care Kaki is a dedicated chatbot that connects caregivers with essential information on financial aid, caregiving resources, and mental health support.
+
+[![Watch the Demo here](https://youtu.be/AEHw6bHblt4)
  
 ## Background
 ![Caring Hands](images/caring-hands-and-logo.jpg)
