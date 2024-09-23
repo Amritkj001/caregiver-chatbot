@@ -13,7 +13,7 @@
 
 Care Kaki offers a simple, all-in-one solution to bridge the awareness gap of resources and support that are crucial for caregivers of the elderly in Singapore.
 
-At the heart of Care Kaki is a dedicated chatbot that connects caregivers with essential information on financial aid, caregiving resources, and mental health support.
+At the heart of Care Kaki is a dedicated chatbot that connects caregivers with essential information on financial aid, caregiving resources, and mental health support. Please watch the demo below.
 
 [![Watch the Demo here](https://img.youtube.com/vi/AEHw6bHblt4/0.jpg)](https://youtu.be/AEHw6bHblt4)
 
