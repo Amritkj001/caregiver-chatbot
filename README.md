@@ -15,8 +15,8 @@ Care Kaki offers a simple, all-in-one solution to bridge the awareness gap of re
 
 At the heart of Care Kaki is a dedicated chatbot that connects caregivers with essential information on financial aid, caregiving resources, and mental health support.
 
-[![Watch the Demo here](https://youtu.be/AEHw6bHblt4)]
- 
+[![Watch the Demo here](https://img.youtube.com/vi/AEHw6bHblt4/0.jpg)](https://youtu.be/AEHw6bHblt4)
+
 ## Background
 ![Caring Hands](images/caring-hands-and-logo.jpg)
 
