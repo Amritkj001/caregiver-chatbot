@@ -9,7 +9,7 @@
  - [Conclusion](#Conclusion)
 
 ## Introducing, Care Kaki
-[![Watch the Demo](https://img.youtube.com/vi/v62lh1YGkwA/0.jpg)(https://youtu.be/AEHw6bHblt4)
+[![Watch the Demo](https://img.youtube.com/vi/v62lh1YGkwA/0.jpg)](https://youtu.be/AEHw6bHblt4)
 
 Care Kaki offers a simple, all-in-one solution to bridge the awareness gap of resources and support that are crucial for caregivers of the elderly in Singapore.
 
